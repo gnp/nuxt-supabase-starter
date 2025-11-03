@@ -1,6 +1,30 @@
-# Nuxt Minimal Starter
+# Nuxt Supabase Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project is the result of:
+
+- Making sure the local system has Node 24.x per Nuxt recommendation.
+
+and following following:
+
+- [Nuxt instructions to create a new project](https://nuxt.com/docs/4.x/getting-started/installation)
+- [Nuxt instructions to enable pages feature](https://nuxt.com/docs/4.x/getting-started/views)
+- [Supabase Nuxt module instructions to integrate Supabase login](https://supabase.nuxtjs.org/getting-started/introduction)
+
+You will need to copy _.env.example_ to _.env_ and fill in the values for your Supabase.
+
+As of 2025-11-03 following those instructions does not work.
+
+- Going to http://localhost:3000/ redirects to http://localhost:3000/login and there is a button and an email input box but they don't do anything.
+- Sending an email invite from Supabase and clicking the link doesn't work (we don't even have the feature implemented to do the set-password flow you'd need for that)
+- There is a console log about a problem with the cookie module.
+
+## Cookie Module Issue
+
+```
+Uncaught (in promise) SyntaxError: The requested module '/_nuxt/@fs/.../nuxt-supabase-starter/node_modules/cookie/dist/index.js?v=2618301e' does not provide an export named 'parse' (at helpers.js?v=2618301e:1:10)
+```
+
+This is a known issue with the Supabase module, [but the solution from the issue comments](https://github.com/nuxt-modules/supabase/issues/488#issuecomment-2812541474) does not work.
 
 ## Setup
 
